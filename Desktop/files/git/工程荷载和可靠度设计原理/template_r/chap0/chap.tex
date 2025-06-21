@@ -1,0 +1,230 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+\input{../config/cover}
+\else
+\fi
+
+\chapter{风荷载}
+
+\begin{theorem}
+$$
+w = w_m - w_b = \frac{1}{2} \rho v^2 = \frac{1}{2} \frac{\gamma}{g} v^2
+$$
+
+风速与风压的关系公式，其中 $w_m$为最大风压力(速度降为0)，$w_b$为原先风压力，$\gamma$ 为空气单位体积的重力，$g$ 为重力加速度。
+\end{theorem}
+
+基本风压的相关因素：
+
+\begin{enumerate}
+    \item 地貌(影响摩擦)
+    \item 标高(一般取10m)
+    \item 最大风速的样本时间:样本时间显然越长越大
+    \item 公称风速的时距:公称风速实际是一定时间间隔的平均风速，不可过长也不可过短。
+    \item 基本风速重现期的长短:{\color{red}该时间范围内的最大风速定义为基本风速}
+\end{enumerate}
+
+\begin{definition}
+    根据实测结果分析，平均风速沿高度变化的规律可用指数函数来描述，即
+
+$$
+\frac{\bar{v}}{v_s} = \left( \frac{z}{z_s} \right)^\alpha
+$$
+
+式中 $\bar{v}$、$z$——任一点的平均风速和高度；
+
+$v_s$、$z_s$——标准高度处的平均风速和高度(一般取10m)。
+
+$\alpha$——与地貌或地面粗糙度有关的指数。
+\end{definition}
+
+由于远离地面的高度的风速相同，$$v_{0s} \left( \frac{H_{Ts}}{z_s} \right)^{\alpha_s} = v_{0a} \left( \frac{H_{Ta}}{z_a} \right)^{\alpha_a}$$
+于是有
+\[
+v_{0a} = v_{0s} \left( \frac{H_{Ts}}{z_s} \right)^{\alpha_s} \left( \frac{H_{Ta}}{z_a} \right)^{-\alpha_a} 
+\]
+
+可得任意地貌的基本风压 \(w_{0a}\) 与标准地貌的基本风压 \(w_0\) 的关系为：
+
+\[
+w_{0a} = w_{0s} \left( \frac{H_{Ts}}{z_s} \right)^{2\alpha_s} \left( \frac{H_{Ta}}{z_a} \right)^{-2\alpha_a} 
+\]
+
+不同地表粗糙度有不同的梯度风高度，地面粗糙度小，风速变化快，梯度风高度比地面粗糙度大的地区低；反之，地面粗糙度越大，梯度风高度将越高。
+
+\begin{remark}
+    任一水平风作用在任意截面的细长物体表面上，会在其表面产生风压，将物体表面上的风压沿表面积分，将得到三种力的成分，即顺风向力 \( P_D \)、横风向力 \( P_L \) 及扭力矩 \( P_M \)。
+    
+    顺风向的风效应分解为平均风 （即稳定风）和脉动风（也称阵风脉动）。
+
+    横风向力较顺风向力小得多，对于对称结构，横风向力更是可以忽略。
+    然而，对于一些细长的柔性结构，横风向力可能会产生很大的动力效应横风向。
+\end{remark}
+
+\begin{definition}
+    风载体型系数(和风速的变化相关，而风速变化由风流动的截面相关，所以和房屋几何形态相关)：
+    $$
+    w=\mu_s w_s
+    $$
+    $$
+    \mu_s=1-\frac{v^2}{v_{0}^2}
+    $$
+    其中$v$为变化后的风速,$v_0$为原先风压力
+\end{definition}
+
+所以一个显然的结论是，迎风面风被阻挡，风速变小，表现为正压力。
+
+背风面横截面变宽，风速变大，表现为负压力，或者说吸力。
+
+\begin{definition}
+    风压高度变化系数
+    \[
+\mu_z(z) = \left( \frac{H_{Ts}}{z_s} \right)^{2\alpha_s} \left( \frac{H_{Ta}}{z_a} \right)^{-2\alpha_a} \left( \frac{z}{z_s} \right)^{2\alpha_a}
+\]
+\end{definition}
+
+A类为海面、沙漠等表面光滑的地貌；B类为田野、乡村、房屋稀疏地等；
+C类为密集建筑群城市市区；D类为密集建筑群且房屋较高市区
+
+\begin{theorem}
+    风荷载标准值的计算公式:
+
+    $$w_k = \beta_r \mu_s \mu_z w_0$$
+    $\beta$是风振系数，若不考虑风压脉动对结构顺风向风振的影响，计算取1
+
+    这也解释了一句话，顺风荷载是平均风和脉动风的线性叠加
+\end{theorem}
+
+
+
+横风向风振验算
+
+(1) 当 $Re < 3 \times 10^5$ 且结构顶部风速 $v_H$ 大于共振风速 $v_{cr}$ 时，可发生亚临界的微风共振。此时可在构造上采取防振措施，或控制结构的临界风速 $v_{cr}$ 不小于 15m/s。
+
+(2) 当 $Re \geq 3.5 \times 10^6$ 且结构顶部风速 $v_H$ 的 1.2 倍大于共振风速 $v_{cr}$ 时，可发生跨临界的强风共振。此时应考虑横风向风振的等效风荷载。
+
+(3) 当 $3 \times 10^5 \leq Re < 3.5 \times 10^6$ 时，则发生超临界范围的风振，可不作处理。{\color{red}同时此时的斯特罗哈数离散性比较强}。
+
+\begin{definition}
+    斯特罗哈数
+    \[
+    S_t = \frac{f_sD}{v}
+    \]
+    $f_s$描述脱落气流的频率，当其和物体的固有频率相等时，发生共振现象。
+\end{definition}
+
+\begin{remark}
+    根据PPT，只有亚临界状态和跨临界状态我们认为是共振的。此时斯特罗哈数分别等于0.2和0.3。
+    
+    斯特罗哈数与建筑截面形状以及雷诺数相关。横向共振时，脱落频率一定。
+\end{remark}
+
+\begin{example}
+    在横风向共振所处区域内:（D）
+
+    A.斯托哈数接近于常数0.2; 
+
+    B.斯托哈数离散性很大;
+
+    C.风漩涡脱落频率与风速成正比; 
+
+    D.风漩涡脱落频率保持常数.
+\end{example}
+
+\begin{example}
+    杭州某高层建筑所在场地为C类地貌，已知杭州基本风压 $w_0 = 0.45\,\mathrm{kN/m}^2$，$\frac{\gamma}{2g} = \frac{1}{1740}$，试分别计算该场地 $50\,\mathrm{m}$ 处的风压及对应的风速值。
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{../figure/3.png}
+        \caption{地貌参数}
+    \end{figure}
+
+    死记硬背下公式，当然可以现场推导下:
+    \[
+    w_{0c} = w_{0s} \left( \frac{H_{Ts}}{z_s} \right)^{2\alpha_s} \left( \frac{H_{Tc}}{z_c} \right)^{-2\alpha_c}=0.45 \left( \frac{350}{10} \right)^{2 \times 0.15} \left( \frac{450}{10} \right)^{-2 \times 0.22} = 0.245 \,\mathrm{kN/m}^2
+    \]
+    于是，求得未知地区的标准风压后，计算其50m高度的风压:
+    \[
+    w_c = w_{0c} (\frac{50}{10})^{2 \times 0.22}=0.497\,\mathrm{kN/m}^2
+    \]
+    计算风速:
+    \[
+    w_c = \frac{1}{2} \rho v^2 = \frac{1}{2} \frac{\gamma}{g} v^2
+    \]
+    \[
+    v = \sqrt{2 w_c g / \gamma} = \sqrt{0.497  / (1/1740)} = 29.4\,\mathrm{m/s}
+    \]
+\end{example}
+
+\begin{example}
+    已知：某矩形高层建筑，结构高度 $H=40\,\mathrm{m}$，平面长度 $D=30\,\mathrm{m}$，宽度 $B=25\,\mathrm{m}$，建造于城市市郊，地面粗糙度 $\alpha_a=0.22$，标准地貌的地面粗糙指数 $\alpha_s=0.15$，基本风压 $w_0=0.5\,\mathrm{kN/m}^2$。假设不考虑脉动风影响，沿高度均匀分成四段进行近似计算。求：顺风向风产生的建筑底部弯矩？
+
+    \textbf{解：}
+
+    1. 计算每段高度：
+    \[
+    \Delta h = \frac{H}{4} = \frac{40}{4} = 10\,\mathrm{m}
+    \]
+    各段中心高度分别为 $z_1=5\,\mathrm{m}$，$z_2=15\,\mathrm{m}$，$z_3=25\,\mathrm{m}$，$z_4=35\,\mathrm{m}$。
+
+    2. 计算各段风压（采用风压高度变化系数）：
+    \[
+    w(z) = \mu_s \mu_z(z) w_0
+    \]
+    其中 $\mu_s = 1.3 ,\text{是体型系数},\mu_z(z)=\left( \frac{H_{Ts}}{z_s} \right)^{2\alpha_s} \left( \frac{H_{Ta}}{z_a} \right)^{-2\alpha_a} \left( \frac{z}{z_s} \right)^{2\alpha_a} = 0.54 \times (\frac{z}{z_s})^{2 \times 0.22}$
+    \begin{align*}
+    w_1 &= 1.3 \times 0.54 \times (5/10)^{0.44} \times 0.5 = 0.26\,\mathrm{kN/m}^2 \\
+    w_2 &= 1.3 \times 0.54 \times (15/10)^{0.44} \times 0.5 = 0.42\,\mathrm{kN/m}^2 \\
+    w_3 &= 1.3 \times 0.54 \times (25/10)^{0.44} \times 0.5 = 0.52\,\mathrm{kN/m}^2 \\
+    w_4 &= 1.3 \times 0.54 \times (35/10)^{0.44} \times 0.5 = 0.61\,\mathrm{kN/m}^2 \\
+    \end{align*}
+    3. 计算各段风荷载（作用面积 $A = B \times \Delta h = 25 \times 10 = 250\,\mathrm{m}^2$）：
+    \[
+    F_i = w_i \cdot B \cdot \Delta h
+    \]
+
+    \begin{align*}
+    F_1 &= 0.26 \times 250 = 65\,\mathrm{kN} \\
+    F_2 &= 0.42 \times 250 = 105\,\mathrm{kN} \\
+    F_3 &= 0.52 \times 250 = 130\,\mathrm{kN} \\
+    F_4 &= 0.61 \times 250 = 152.5\,\mathrm{kN} \\
+    \end{align*}
+    4. 计算各段力臂（至底部距离）：
+    \begin{align*}
+    l_1 &= 35\,\mathrm{m} \\
+    l_2 &= 25\,\mathrm{m} \\
+    l_3 &= 15\,\mathrm{m} \\
+    l_4 &= 5\,\mathrm{m} \\
+    \end{align*}
+
+    5. 计算底部弯矩：
+    \[
+    M = \sum_{i=1}^{4} F_i \cdot l_i = 91.8 \times 35 + 148.5 \times 25 + 176.3 \times 15 + 197.5 \times 5
+    \]
+    \[
+    = 3213 + 3712.5 + 2644.5 + 987.5 = 10557\,\mathrm{kN \cdot m}
+    \]
+
+    \textbf{答：} 顺风向风产生的建筑底部弯矩约为 $10557\,\mathrm{kN \cdot m}$。
+
+\end{example}
+
+\begin{example}
+    什么情况下要考虑结构横风向风振效应？如何进行横风向风振验算？什么情况下要考虑结构横风向风振效应？如何进行横风向风振验算？
+
+    当横向风作用引起结构共振时，结构横风向风振效应不可忽略。通过雷诺数验算。
+\end{example}
+
+
+
+
+
+
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

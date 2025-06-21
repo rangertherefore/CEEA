@@ -1,0 +1,215 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+
+\chapter{材料基本性质}
+\section{基本定义}
+
+\begin{definition}
+    四种密度
+    \begin{enumerate}
+        \item 密度$\rho$:绝对密实情况。碾成粉然后采用排水法。
+        \item 视密度$\rho_a$:仅包含闭口孔隙
+        \item 表观密度$\rho_o$:考虑开口和闭口孔隙。
+        \item 堆积密度$\rho_o^{\prime}$:考虑开闭口孔隙，同时考虑空隙。
+    \end{enumerate}
+    显然:
+    \[
+    \rho>\rho_a>\rho_o>\rho_o^{\prime}
+    \]
+\end{definition}
+
+密实度是材料体积内被固体物质充实的程度。按下式计算：
+$$
+D = \frac{V}{V_0} \times 100\% \quad \text{或} \quad D = \frac{\rho_0}{\rho} \times 100\%
+$$
+孔隙率是材料体积内，孔隙体积所占的比例。按下式计算：
+$$
+P = \frac{V_0 - V}{V_0} = 1 - \frac{V}{V_0} = \left(1 - \frac{\rho_0}{\rho}\right) \times 100\%
+$$
+
+\begin{remark}
+    D+P=1或 密实度+孔隙率=1
+\end{remark}
+
+\begin{definition}
+    耐水性
+
+材料抵抗水破坏作用的性质称为耐水性，用软化系数表示，即
+\[ K_R = \frac{f_b}{f_g} \]
+\end{definition}
+
+\begin{definition}
+    抗渗性:材料抵抗压力液体渗透的能力
+
+当材料两侧存在不同压力时，一切破坏因素（如腐蚀性介质）都可通过水或气体进入材料内部，然后把所分解的产物代出材料，使材料逐渐破坏，如地下建筑、基础、压力管道、水工建筑等经常受到压力水或水头差的作用，故要求所用材料具有一定的抗渗性，对于各种防水材料，则要求具有更高的抗渗性。
+\end{definition}
+
+\begin{definition}
+    渗透系数的物理意义是：在一定时间t内，透过材料试件的水量Q，与试件的渗水面积A及水头差成正比，与渗透距离(试件的厚度) d成反比，用公式表示为
+
+\[ K = \frac{Qd}{AtH} \]
+\end{definition}
+
+\begin{definition}
+    S=10H-1
+
+式中：S---抗渗等级；
+H ---试件开始渗水时的压力(MPa)
+\end{definition}
+
+\section{作业题}
+
+\begin{example}
+    考虑孔隙率变化，材料性质会如何改变,$P_o$是开口孔隙率,$P_c$是闭口孔隙率（{\color{red}第二、三行孔隙率不变，只改变开口或者闭口孔隙率}）
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        孔隙率 & 密度 & 表观密度 & 强度 & 吸水性 & 吸湿性 & 抗冻性 & 抗渗性 & 导热性 & 吸声性 \\
+        \hline
+        P $\uparrow$ & = & $\downarrow$ & $\downarrow$ & $\uparrow$ & $\uparrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$ & $\uparrow$ \\
+        \hline
+        P$_o$ $\uparrow$ & = & = & $\downarrow$ & $\uparrow$ & $\uparrow$ & $\downarrow$ & $\downarrow$ & $\uparrow$ & $\uparrow$ \\
+        \hline
+        P$_c$ $\uparrow$ & = & = & $\uparrow$ & $\downarrow$ & $\downarrow$ & $\uparrow$ & $\uparrow$ & $\downarrow$ & $\downarrow$ \\
+        \hline
+        \end{tabular}
+        \caption{孔隙率与其他物理性质变化的关系表}
+    \end{table}
+\end{example}
+
+\begin{remark}
+    开口孔隙会降低强度，但是微闭口孔隙会提高强度。
+
+    表观密度包括开口也包括闭口孔隙，所以不变。
+
+    开口孔隙会降低抗冻性。
+\end{remark}
+
+\begin{example}
+    1-2 今有湿砂100.0kg，已知其含水率为6.0\%，则其中含有的水的质量是多少？
+$$
+\frac{m_{ssd} - m}{m} \times 100\% = 6.0\%
+$$
+其中 $m_{ssd} = 100.0$kg
+$$
+m = 94.3 \text{kg}
+$$
+$$
+m_w = m \times W_m = 5.66 \text{kg}
+$$
+\end{example}
+
+\begin{example}
+某石材在气干、绝干、水饱和条件下测得的抗压强度分别为74.0、80.0、65.0 MPa，求该石材的软化系数，并判断该石材可否用于水下工程。P9
+$$
+K_R = \frac{f_b}{f_g} = \frac{65}{80} = 0.81 < 0.85
+$$
+不可用于水下工程
+\end{example}
+
+\begin{remark}
+    用绝干来计算
+\end{remark}
+
+\begin{example}
+称取堆积密度为1480kg/m³的干砂300g，将此砂加入已装有250mL水的500mL容量瓶内，充分摇动排尽气泡，静止24h小时后加水到刻度，称得总重量为876g；将瓶内砂和水倒出洗净后，再向瓶内重新注水到刻度，此时称得总重量为690 g。再将砂敲碎磨细过筛(0.2 mm)烘干后，取样53.81 g，测得其排水体积V排水为19.85 cm³。试计算该砂的空隙率。
+$$
+\text{空隙率计算公式为:}P=\left(1 - \frac{\rho_0^{\prime}}{\rho}\right) \times 100\%,\text{我们需要知道堆积密度和绝对密度}
+$$
+$$
+\rho = \frac{m}{V} = \frac{53.81}{19.85} = 2.71\,\mathrm{g}/\mathrm{cm}^3
+$$
+$$
+\rho_0 = 300 \times \frac{1}{300 + 690 - 876} = 2.63\text{g}/\text{cm}^3
+$$
+$$
+P = \left(1 - \frac{\rho_0^{\prime}}{\rho}\right) \times 100\% = \left(1 - \frac{2.63}{2.71}\right) \times 100\% = 43.73\%
+$$
+\end{example}
+
+\begin{example}
+一块砖块，其真实密度 $\rho = 2.60 \, \text{g/cm}^3$，绝干状态下的质量 $m_0 = 2000 \, \text{g}$，将它浸没于水中，吸水饱和后取出表面，测得其饱和质量 $m_h = 2350 \, \text{g}$；另外用静水天平测得其浸泡于水中的质量 $m_2 = 1150 \, \text{g}$。求该砖的表观密度、体积吸水率、孔隙率、开口孔隙率和闭口孔隙率。
+
+\begin{remark}
+    静水天平的测量原理:物体在空气中的重力和在水中产生的荷载的差，为浮力，可以同时测量质量和体积。
+\end{remark}
+
+表观密度(实际上对应浙大版的视密度，只算了开口孔)： 
+$$
+\rho_o = \frac{m_0}{m_0 - m_2} = \frac{2000}{2000 - 1150} = 2.35 \, \text{g/cm}^3
+$$
+
+体积密度(实际上对应浙大版的表观密度，因为开口和闭口孔都算上了)： 
+$$
+\rho_\omega = \frac{m_0}{m_1 - m_2} = \frac{2000}{2350 - 1150} = 1.67 \, \text{g/cm}^3
+$$
+
+孔隙率：
+$$
+P = \left( 1 - \frac{\rho_\omega}{\rho_t} \right) \times 100\% = \left( 1 - \frac{1.67}{2.60} \right) \times 100\% = 35.8\%
+$$
+
+体积吸水率(只算开口孔)：
+$$
+W_v = P = \left( 1 - \frac{\rho_\omega}{\rho_e} \right) \times 100\% = \left( 1 - \frac{1.67}{2.35} \right) \times 100\% = 28.9\%
+$$
+
+开口孔隙率：
+$$
+P_o = W_v = 28.9\%
+$$
+
+闭口孔隙率：
+$$
+P_c = P - P_o = 35.8\% - 28.9\% = 6.9\%
+$$
+\end{example}
+
+\begin{example}
+    称取堆积密度为1480kg/m³的干砂300g，将此砂加入已装有250mL水的500mL容量瓶内，充分摇动排尽气泡，静止24h小时后加水到刻度，称得总重量为876g；将瓶内砂和水倒出洗净后，再向瓶内重新注水到刻度，此时称得总重量为690 g。再将砂敲碎磨细过筛(0.2 mm)烘干后，取样53.81 g，测得其排水体积V排水为19.85 cm³。试计算该砂的空隙率。
+
+    首先可以轻松算出绝对密度:
+    \[
+    \rho = \frac{m}{V} = \frac{53.81}{19.85} = 2.71\,\mathrm{g}/\mathrm{cm}^3
+    \]
+    其次，这里(876-690)g是砂比同体积的水重的质量，所以砂的体积就是300-(876-690)g的水的体积: 
+    
+    因此表观密度就是(这里你可能疑惑为什么开口闭口啥都没说，为啥就是表观密度了?但是就是，我也不知道为啥，查规范查的):
+    \[
+    \rho_0 = 300 \times \frac{1}{300 + 690 - 876} = 2.63\text{g}/\text{cm}^3
+    \]
+    因此，孔隙率就是:
+    \[
+    P = \left(1 - \frac{\rho_0^{\prime}}{\rho}\right) \times 100\% = \left(1 - \frac{2.63}{2.71}\right) \times 100\% = 43.73\%
+    \]
+\end{example}
+
+\begin{example}
+    评价材料耐水性的指标是什么?
+
+    软化系数:$K_R=\frac{f_b}{f_g}$,大于0.85为耐水材料，类似的有渗透系数，描述渗水能力，$K=\frac{Qd}{AtH}$（H是两侧压强的水头差），$S=10H-1$,渗透等级(H —试件开始渗水时的压力(MPa))。
+\end{example}
+
+\begin{example}
+    缩写解释题，历年卷有考过的几个高频考点:F50 C25 M7.5 Q235 MU20 42.5R什么意思？
+
+    抗冻能力，用符号Fn表示，其中n即为最大冻融循环次数。 例如F25、F50等。类似需要复习的符号有C25(C是混凝土符号，25是指28天标准抗压强度为25MPa)，M7.5(砂浆28天标准养护的抗压强度)，42.5(水泥28天标准养护的抗压强度，当然还要比较抗折强度，带R的是早强的),Q是钢材的屈服强度，大于235MPa，然后MU 是砖块的抗压等级，大于20MPa。。
+\end{example}
+
+\begin{example}
+    有没有导热系数比空气还小的材料？
+
+气凝胶材料由纳米级孔道和极低密度结构组成，极大程度抑制了气体和固体的热传导。
+\end{example}
+
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

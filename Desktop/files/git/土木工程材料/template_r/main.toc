@@ -1,0 +1,36 @@
+\contentsline {chapter}{\numberline {第零章\hspace {.3em}}材料基本性质}{1}{chapter.0}%
+\contentsline {section}{\numberline {0.1}基本定义}{1}{section.0.1}%
+\contentsline {section}{\numberline {0.2}作业题}{2}{section.0.2}%
+\contentsline {chapter}{\numberline {第一章\hspace {.3em}}无机气硬性胶凝材料}{6}{chapter.1}%
+\contentsline {section}{\numberline {1.1}石灰}{6}{section.1.1}%
+\contentsline {section}{\numberline {1.2}石膏}{7}{section.1.2}%
+\contentsline {section}{\numberline {1.3}水玻璃}{8}{section.1.3}%
+\contentsline {section}{\numberline {1.4}镁质胶凝材料}{8}{section.1.4}%
+\contentsline {section}{\numberline {1.5}材料性质和用途对比}{9}{section.1.5}%
+\contentsline {section}{\numberline {1.6}作业题}{9}{section.1.6}%
+\contentsline {chapter}{\numberline {第二章\hspace {.3em}}水泥}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}成分组成}{11}{section.2.1}%
+\contentsline {section}{\numberline {2.2}水泥技术性质、侵蚀、材料选择}{13}{section.2.2}%
+\contentsline {section}{\numberline {2.3}其他品种水泥}{16}{section.2.3}%
+\contentsline {chapter}{\numberline {第三章\hspace {.3em}}混凝土}{19}{chapter.3}%
+\contentsline {section}{\numberline {3.1}普通混凝土的基本组成材料}{19}{section.3.1}%
+\contentsline {section}{\numberline {3.2}混凝土的技术性质}{20}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}影响混凝土强度的因素}{22}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}混凝土耐久性的影响因素}{25}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}混凝土质量控制}{25}{section.3.3}%
+\contentsline {section}{\numberline {3.4}混凝土配比}{26}{section.3.4}%
+\contentsline {paragraph}{基本要求}{26}{paragraph*.3}%
+\contentsline {paragraph}{基本参数}{26}{paragraph*.4}%
+\contentsline {chapter}{\numberline {第四章\hspace {.3em}}砂浆、钢材、沥青、墙体材料}{31}{chapter.4}%
+\contentsline {section}{\numberline {4.1}砂浆}{31}{section.4.1}%
+\contentsline {paragraph}{流动性:}{31}{paragraph*.5}%
+\contentsline {paragraph}{保水性:}{31}{paragraph*.6}%
+\contentsline {section}{\numberline {4.2}钢材}{32}{section.4.2}%
+\contentsline {section}{\numberline {4.3}钢材腐蚀与预防}{34}{section.4.3}%
+\contentsline {paragraph}{化学腐蚀}{34}{paragraph*.9}%
+\contentsline {paragraph}{电化学腐蚀}{34}{paragraph*.10}%
+\contentsline {chapter}{\numberline {第五章\hspace {.3em}}配合比计算}{36}{chapter.5}%
+\contentsline {section}{\numberline {5.1}配合比计算的基本原理}{36}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}一些参数说明}{38}{subsection.5.1.1}%
+\contentsline {section}{\numberline {5.2}体积法与查表细节}{38}{section.5.2}%
+\contentsline {section}{\numberline {5.3}课本计算案例}{41}{section.5.3}%

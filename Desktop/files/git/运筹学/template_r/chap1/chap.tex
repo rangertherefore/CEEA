@@ -1,0 +1,170 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+
+\chapter{对偶理论}
+
+\begin{theorem}
+    对偶问题的性质
+
+    \begin{enumerate}
+        \item 弱对偶性：\( CX \leq b^TY \)
+        \item 最优性：\( CX = b^TY \Rightarrow X, Y\) 均为最优解
+        \item 强对偶性：设 \( X^0, Y^0 \) 分别是原始问题和对偶问题的可行解\\
+        则必存在最优解 \( X^*, Y^* \)，且有 \( c^TX^* = b^TY^* \)
+        \item 互补松弛性：\( X^*, Y^* \) 为最优解的充要条件
+    \end{enumerate}
+
+\[
+(A X - b)^T Y = 0 \text{ 和 } X^T (A^T Y - C^T) = 0
+\]
+\[
+X_s^T Y = 0 \text{ 和 } X^T Y_s = 0
+\]
+\end{theorem}
+
+\begin{proof}
+    \textbf{弱对偶性:\\}
+    设 \( \mathbf{X} \)、\( \mathbf{Y} \) 分别是原始问题和对偶问题的可行解，有
+\[ z = c^T \mathbf{X} \leq \mathbf{Y}^T \mathbf{A} \mathbf{X} \leq \mathbf{Y}^T  \mathbf{b} = w \]
+\end{proof}
+
+\begin{remark}
+    一个问题无界解时，另一个问题无可行解
+\end{remark}
+
+互补松弛性
+
+可行解 \( \mathbf{X}^0 \)、\( \mathbf{Y}^0 \) 分别是原始问题和对偶问题的最优解，充要条件是
+\[
+(\mathbf{A}\mathbf{X}^0 - \mathbf{b})^T \mathbf{Y}^0 = 0 \quad \text{和} \quad \mathbf{X}^0 (\mathbf{A}^T \mathbf{Y}^0 - \mathbf{C}^T) = 0
+\]
+或
+\[
+\mathbf{X}_s^{0T} \mathbf{Y}^0 = 0 \quad \text{和} \quad \mathbf{X}^{0T} \mathbf{Y}_s^0 = 0
+\]
+
+\begin{proof}
+    满足互补松弛性时有最优解的证明
+
+充分性:
+
+原问题
+$$
+\text{max } z = CX
+$$
+$$
+\text{s.t. } AX + X_s = b
+$$
+$$
+X, X_s \geq 0
+$$
+
+对偶问题
+$$
+\text{min } w = b^TY
+$$
+$$
+\text{s.t. } A^TY - Y_s = C^T
+$$
+$$
+Y, Y_s \geq 0
+$$
+
+可得：
+$$
+z = CX^0 = X^{0T}(A^TY^0 - Y_s^0) = X^{0T}A^TY^0 - X^{0T}Y_s^0
+$$
+$$
+w = b^TY^0 = (X^{0T}A^T + X_s^{0T})Y^0 = X^{0T}A^TY^0 + X_s^{0T}Y^0
+$$
+
+故有 $w = z$。由最优性知均为最优解。
+
+必要性:
+
+若 $X^0, Y^0$ 是最优解，有： $CX^0 = b^T Y^0 = z^* = w^*$
+
+原问题
+$$
+\max z = CX
+$$
+$$
+s.t. \quad  AX \leq b
+$$
+$$
+X, X_s \geq 0
+$$
+对偶问题
+$$
+\min w = b^T Y
+$$
+$$
+s.t. \quad A^T Y \geq C^T
+$$
+$$
+Y, Y_s \geq 0
+$$
+
+可得： $X^0 T A^T Y^0 \leq b^T Y^0 = w^* = z^* = CX^0 \leq X^0 T A^T Y^0$
+
+即： $z^* = w^* = X^0 T A^T Y^0 \Rightarrow X_s^0 T Y^0 = 0$ 和 $X^0 T Y_s^0 = 0$。
+\end{proof}
+
+\[
+\begin{array}{|c|c|}
+\hline
+\textbf{原问题} & \textbf{对偶问题} \\
+\hline
+\text{max } z = CX & \text{min } w = b^T Y \\
+\text{s.t. } AX \leq b & \text{s.t. } A^T Y \geq C^T \\
+X \geq 0 & Y \geq 0 \\
+\hline
+AX \geq b & Y \leq 0 \\
+AX = b & Y \text{ unr} \\
+X \leq 0 & A^T Y \leq C^T \\
+X \text{ unr} & A^T Y = C^T \\
+\hline
+\end{array}
+\]
+
+\begin{remark}
+    \begin{enumerate}
+        \item 松弛变量的检验数是对偶问题的变量的相反数
+        \item 实际上可以理解为，松弛变量是工厂生产的多余材料，检验数是增加某方案的利润，松弛变量相当于只增加材料的消耗，它的检验数就是材料的价格，正好对应对偶问题的变量的相反数
+    \end{enumerate}
+\end{remark}
+
+\begin{definition}
+    影子价格
+影子价格（Shadow Price）是利润最大化生产下资源的边际利润，反映了资源的利润价值。
+
+可以理解为在当前方案下的资源的心理价格，即在当前方案下，买资源一方愿意出的价格。
+\end{definition}
+
+在利润最大化的生产计划中
+\begin{enumerate}
+    \item 边际利润大于0的资源没有剩余（影子价格越大说明资源越紧缺）
+    \item 有剩余的资源，边际利润等于0（购进该种资源不能增加利润）
+    \item 安排生产的产品，差额成本等于0（出售的机会成本等于生产利润）
+    \item 差额成本大于0，不安排生产（出售机会成本大于生产利润，不如卖资源）
+\end{enumerate}
+
+\begin{remark}
+    对偶问题解与检验数的关系
+    \begin{enumerate}
+        \item 单纯形表上原问题的检验数对应了对偶问题的一个基解
+        \item 单纯形表上原问题的和检验数对应了对偶问题具有相同的目标函数值
+    \end{enumerate}
+\end{remark}
+
+
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

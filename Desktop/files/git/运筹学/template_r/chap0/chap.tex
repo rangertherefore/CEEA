@@ -1,0 +1,338 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+\input{../config/cover}
+\else
+\fi
+
+\chapter{对策论}
+
+\begin{definition}
+\label{def:game}
+    \textbf{博弈}是指在一个特定的环境中，多个参与者（称为博弈者）通过选择策略来影响结果的过程。博弈论研究这些博弈的性质、策略选择和结果。
+    
+    博弃模型 \(G = \{I, II; S_1, S_2; A\}\)
+\end{definition}
+
+\[
+\mathbf{A} = \begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn}
+\end{bmatrix}
+\]
+
+如果存在
+
+$$
+\max_{i} \min_{j} a_{ij} = \min_{j} \max_{i} a_{ij} = a_{i^* j^*} = V_G
+$$
+
+则 $(\alpha_{i^*}, \beta_{j^*})$ 为矩阵博弈的最优纯策略对，也称为最优局势。$V_G$ 称为博弈值。
+
+矩形博弈最优纯策略对存在的充要条件是存在鞍点。
+
+$$ a_{ij^*} \leq a_{i^*j^*} \leq a_{i^*j} \quad \text{(鞍点条件)} $$
+$$ \max_{i} a_{ij^*} \leq a_{i^*j^*} \leq \min_{j} a_{i^*j} $$
+
+\begin{proof}
+    \textbf{必要性}
+    $$
+    \max_i \min_j a_{ij} = \min_j \max_i a_{ij}
+    $$
+    $$
+    \exists i^*, j^* \quad \min_j a_{i^* j} = \max_i \min_j a_{ij} = \min_j \max_i a_{ij} = \max_i a_{i j^*}
+    $$
+    $$
+    a_{i^* j^*} \geq \min_j a_{i^* j} = \max_i \min_j a_{ij} = \min_j \max_i a_{ij} = \max_i a_{i j^*} \geq a_{i^* j^*}
+    $$
+    $$
+    \min_j a_{i^* j} = \max_i a_{i j^*} = a_{i^* j^*} \quad \Rightarrow \quad a_{i j^*} \leq a_{i^* j^*} \leq a_{i^* j}
+    $$
+    \textbf{充分性}
+    \[ a_{ij*} \leq a_{i*j*} \leq a_{i*j} \]
+    \[ \max_{i} a_{ij*} \leq a_{i*j*} \leq \min_{j} a_{i*j} \]
+    \[ \min_{j} \max_{i} a_{ij} \leq a_{i*j*} \leq \max_{i} \min_{j} a_{ij} \]
+    又根据 \[ \max_{i} \min_{j} a_{ij} \leq \min_{j} \max_{i} a_{ij} \]
+    \[ \max_{i} \min_{j} a_{ij} = \min_{j} \max_{i} a_{ij} \]
+\end{proof}
+
+当我们找到这样一组决策时,对于任何其他决策和双方决策者,我们都不能得到更好的结果,这就是鞍点的意思。
+
+\begin{remark}
+    纳什均衡解 $\leftrightarrow$ 最优纯策略对
+\end{remark}
+
+多个均衡解的性质:
+\begin{itemize}
+    \item 无差别性
+    \item 可交换性
+    \item 存在无策略解，此时选择随机策略
+\end{itemize}
+
+\begin{definition}
+    博奕模型 $G^* = \{S_1^*, S_2^*; E\}$
+
+    $\triangleright$ 混合策略集
+
+    $$ S_1^* = \left\{ x \in R^m \mid x_i \geq 0, \ i = 1, 2, \cdots, m; \sum_{i=1}^m x_i = 1 \right\} $$
+
+    $x_i$ 为局中人I执行纯策略 $\alpha_i$ 的概率
+
+    $$ S_2^* = \left\{ y \in R^n \mid y_j \geq 0, \ j = 1, 2, \cdots, n; \sum_{j=1}^n y_j = 1 \right\} $$
+
+    $y_j$ 为局中人II执行纯策略 $\beta_i$ 的概率
+
+    $\triangleright$ 局中人I的赢得函数: $E(x, y) = x^T A y = \sum_{i=1}^m \sum_{j=1}^n a_{ij} x_i y_j$
+
+    $\triangleright$ 局中人II的赢得函数: $-E(x, y)$
+\end{definition}
+
+如果双方都是理性决策
+
+- 局中人I的最大预期赢得:
+  $$
+  \max_{x \in S_1} \min_{y \in S_2} E(x, y)
+  $$
+
+- 局中人II的最小预期损失:
+  $$
+  \min_{y \in S_2} \max_{x \in S_1} E(x, y)
+  $$
+
+两者关系:
+$$
+\max_{x \in S_1} \min_{y \in S_2} E(x, y) \leq \min_{y \in S_2} \max_{x \in S_1} E(x, y)
+$$
+
+混合策略
+$$
+\mathbf{x} = [x_1, x_2, \cdots, x_m]^T \quad \mathbf{y} = [y_1, y_2, \cdots, y_n]^T
+$$
+
+\begin{theorem}
+    最优混合策略对/均衡解存在的充要条件：存在鞍点
+    
+    $$E(x, y^*) \leq E(x^*, y^*) \leq E(x^*, y)$$
+\end{theorem}
+
+\begin{proof}
+    一定存在混合策略对意义下的矩阵博弈均衡解
+
+$\exists$x*,y*满足:
+$$\sum_{i=1}^{m}\sum_{j=1}^{n}a_{ij}y_{j}^{*}x_{i}=E(x,y^{*})\leq E(x^{*},y^{*})\leq E(x^{*},y)=\sum_{j=1}^{n}\sum_{i=1}^{m}a_{ij}x_{i}^{*}y_{j}^{*}$$
+
+鞍点条件
+$$\sum_{j=1}^{n}a_{ij}y_{j}^{*}\leq E(x^{*},y^{*})\leq \sum_{i=1}^{m}a_{ij}x_{i}^{*} \quad \forall i=1,2,\cdots,m \quad \forall j=1,2,\cdots,n$$
+
+一方采用纯策略，一方采用最优混合策略
+$$\exists v=E(x^{*},y^{*})$$ 使下面2组不等式均有解
+
+$$\sum_{i=1}^{m}a_{ij}x_{i}^{*}\geq v \quad j=1,2,\cdots,n$$
+$$\sum_{i=1}^{m}x_{i}^{*}=1 \quad x_{i}^{*}\geq 0 \quad i=1,2,\cdots,m$$
+
+$$\sum_{j=1}^{n}a_{ij}y_{j}^{*}\leq v \quad i=1,2,\cdots,m$$
+$$\sum_{j=1}^{n}y_{j}^{*}=1 \quad y_{j}^{*}\geq 0 \quad j=1,2,\cdots,n$$
+
+使得对偶问题均有可行解，且 \( w^* = v^* = E(x^*, y^*) \)
+
+可以验证
+\[
+\mathbf{x} = [1 \quad 0 \quad \cdots \quad 0] \quad w = \min a_{1j}
+\]
+\[
+\mathbf{y} = [1 \quad 0 \quad \cdots \quad 0] \quad v = \max a_{i1}
+\]
+原问题有可行解同时对偶问题也有可行解
+
+故有
+\[
+\sum_{j=1}^{n} a_{ij} y_j^* = v^* = w^* = \sum_{i=1}^{m} a_{ij} x_i^* \quad \text{强对偶性}
+\]
+
+又根据：
+\[
+E(\mathbf{x}^*, \mathbf{y}^*) = \sum_{j=1}^{n} \sum_{i=1}^{m} a_{ij} x_i^* y_j^* = \sum_{i=1}^{m} \left( \sum_{j=1}^{n} a_{ij} y_j^* \right) x_i^* \leq v^* \sum_{i=1}^{m} x_i^* = v^*
+\]
+\[
+E(\mathbf{x}^*, \mathbf{y}^*) = \sum_{j=1}^{n} \sum_{i=1}^{m} a_{ij} x_i^* y_j^* = \sum_{j=1}^{n} \left( \sum_{i=1}^{m} a_{ij} x_i^* \right) y_j^* \geq w^* \sum_{j=1}^{n} y_j^* = w^*
+\]
+
+\[
+w^* = v^* = E(\mathbf{x}^*, \mathbf{y}^*)
+\]
+
+\end{proof}
+
+\begin{theorem}
+    从两个互为对偶的线性规划问题里，我们有互补松弛性
+\[
+x_i^* > 0 \implies \sum_{j=1}^{n} a_{ij} y_j^* = v^* = E(x^*, y^*)
+\]
+
+\[
+y_j^* > 0 \implies \sum_{i=1}^{m} a_{ij} x_i^* = w^* = E(x^*, y^*)
+\]
+
+\[
+\sum_{j=1}^{n} a_{ij} y_j^* < v^* = E(x^*, y^*) \implies x_i^* = 0
+\]
+
+\[
+\sum_{i=1}^{m} a_{ij} x_i^* > w^* = E(x^*, y^*) \implies y_j^* = 0
+\]
+
+如果某条纯策略在均衡解中有被选择的可能，则对手的最优混合策略在该纯策略下的赢得值不会比 \(V_G\) 更好。
+
+如果某条纯策略下对手的最优混合策略的赢得值比 \(V_G\) 更好，则该纯策略在均衡解中无被选择可能。
+\end{theorem}
+
+解集T(G)：博弈G的均衡解集合。
+
+赢得矩阵严格单调变换下的解集不变性
+
+博弈：
+\[ G_1 = \{S_1, S_2; A_1\} \]
+\[ G_2 = \{S_1, S_2; A_2\} \]
+
+\[ A_2 = A_1 + L * 1_{m \times n} \quad \Longrightarrow \quad T(G_1) = T(G_2) \quad V_{G_1} = V_{G_2} + L \]
+
+\[ A_2 = aA_1 \quad a > 0 \quad \Longrightarrow \quad T(G_1) = T(G_2) \quad V_{G_1} = aV_{G_2} \]
+
+\begin{proof}
+    证明：上述变换只改变了赢得矩阵元素的数值，不改变相对大小关系。
+\end{proof}
+
+如果博弈问题具有如下对称性：
+
+\[ \mathbf{A} = -\mathbf{A}^T \]
+
+自身角度的赢得矩阵相同
+
+\[ T_{\text{I}}(G) = T_{\text{II}}(G) \quad a_{ij} = \begin{cases} 
+-a_{ji} & i \neq j \\
+0 & i = j 
+\end{cases} \]
+
+\[ V_G = E(\mathbf{x}^*, \mathbf{x}^*) = \sum_{j=1}^n \sum_{i=1}^m a_{ij} x_i^* x_j^* = -V_G = 0 \]
+
+这场游戏没有赢家，可以近似的理解为双方的损失相同。
+
+互补松驰性方程组
+
+$$
+\begin{aligned}
+x_i^* > 0 & \quad \Rightarrow \quad \sum_{j=1}^n a_{ij} y_j^* = v^* = E(x^*, y^*) \quad i \in \{1, 2, \cdots, m\} \\
+y_j^* > 0 & \quad \Rightarrow \quad \sum_{i=1}^m a_{ij} x_i^* = w^* = E(x^*, y^*) \quad j \in \{1, 2, \cdots, n\}
+\end{aligned}
+$$
+
+$$
+\sum_{i=1}^m x_i^* = 1
+$$
+
+$$
+\sum_{j=1}^n y_j^* = 1
+$$
+
+可以理解为对于均衡解，每条纯策略在对方的混合策略下都是相等且最优的。
+
+\begin{example}
+    田忌赛马
+    $$
+\mathbf{A} = \begin{bmatrix}
+-3 & -1 & 1 & -1 & -1 & -1 \\
+-1 & -3 & -1 & 1 & -1 & -1 \\
+-1 & -1 & -3 & -1 & 1 & -1 \\
+-1 & -1 & -1 & -3 & -1 & 1 \\
+1 & -1 & -1 & -1 & -3 & -1 \\
+-1 & 1 & -1 & -1 & -1 & -3
+\end{bmatrix}
+$$
+
+任何一条纯策略均是对方特定策略下的唯一赢得策略，\textbf{也就是说都有赢的可能}，故有
+
+$$
+x_i^* > 0 \quad i = 1, 2, \cdots, m
+$$
+$$
+y_j^* > 0 \quad j = 1, 2, \cdots, n
+$$
+\end{example}
+
+\begin{remark}
+    \textbf{利用线性规划求解博弈问题(需要先假设w,v$\ge$0)}
+\end{remark}
+
+\begin{equation}
+        \begin{aligned}
+        & \text{max} & w \\
+        & \text{s.t.} & \sum_{i=1}^{m} a_{ij} x_i & \geq w & j = 1, 2, \cdots, n \\
+        & & \sum_{i=1}^{m} x_i & = 1 \\
+        & & x_i & \geq 0 & i = 1, 2, \cdots, m
+        \end{aligned}
+        \end{equation}
+        
+        \begin{equation}
+        x_i' = \frac{x_i}{w}
+        \end{equation}
+        
+        \begin{equation}
+        \begin{aligned}
+        & \text{min} & \sum_{i=1}^{m} x_i' & = \frac{1}{w} \\
+        & \text{s.t.} & \sum_{i=1}^{m} a_{ij} x_i' & \geq 1 & j = 1, 2, \cdots, n \\
+        & & x_i' & \geq 0 & i = 1, 2, \cdots, m
+        \end{aligned}
+        \end{equation}
+        
+        \begin{equation}
+        \begin{aligned}
+        & \text{min} & v \\
+        & \text{s.t.} & \sum_{j=1}^{n} a_{ij} y_j & \leq v & i = 1, 2, \cdots, m \\
+        & & \sum_{j=1}^{n} y_j & = 1 \\
+        & & y_j & \geq 0 & j = 1, 2, \cdots, n
+        \end{aligned}
+        \end{equation}
+        
+        \begin{equation}
+        y_j' = \frac{y_j}{v}
+        \end{equation}
+        
+        \begin{equation}
+        \begin{aligned}
+        & \text{max} & \sum_{j=1}^{n} y_j' & = \frac{1}{v} \\
+        & \text{s.t.} & \sum_{j=1}^{n} a_{ij} y_j' & \leq 1 & i = 1, 2, \cdots, m \\
+        & & y_j' & \geq 0 & j = 1, 2, \cdots, n
+        \end{aligned}
+\end{equation}
+
+
+囚徒困境的纯策略解
+$$
+A = \begin{bmatrix} -9 & 0 \\ -15 & -1 \end{bmatrix}, \quad
+B = \begin{bmatrix} -9 & -15 \\ 0 & -1 \end{bmatrix}
+$$
+局中人I选择:
+$$ j_i^* (B) = \begin{bmatrix} 1 \\ 1 \end{bmatrix} \quad \Rightarrow \quad i_j^* (A) = 1 \quad \Rightarrow \quad (i^*, j^*) = (1, 1) $$
+
+局中人II选择:
+$$ i_j^* (A) = \begin{bmatrix} 1 & 1 \end{bmatrix} \quad \Rightarrow \quad j_i^* (B) = 1 \quad \Rightarrow \quad (i^*, j^*) = (1, 1) $$
+
+\begin{definition}
+    Nash均衡点
+
+满足以下条件的策略对 \((\alpha_{i*}, \beta_{j*})\)
+
+\[ a_{i*j*} \geq a_{ij*} \quad i = 1, 2, \cdots, m \]
+
+\[ b_{i*j*} \geq b_{i*j} \quad j = 1, 2, \cdots, n \]
+
+没有一个局中人愿意单方面改变策略
+\end{definition}
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

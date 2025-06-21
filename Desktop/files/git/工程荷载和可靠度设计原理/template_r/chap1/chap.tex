@@ -1,0 +1,39 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+
+\chapter{荷载类型}
+
+\begin{definition}
+    作用（action）：是指能使结构产生效应（effect）的各种原因的总称。
+
+    其中作用又分为直接作用和间接作用，{\color{red}直接作用是狭义上的荷载}。
+
+    可以简记为和力有关的都是直接作用，和变形有关的都是间接作用。
+\end{definition}
+
+\begin{example}
+    地震引起的惯性力属于间接作用。
+
+    但是由爆炸、离心作用等产生的作用在物体上的惯性力以及制动力是荷载。
+\end{example}
+
+\begin{definition}
+    作用可以按时间变异分为三种作用:
+    \begin{enumerate}
+        \item 永久作用(在结构设计基准期内不随时间变化或变化与平均值相比可忽略不计):如土压力，结构自重
+        \item 可变作用(在结构设计基准期内随时间变化，且变化与平均值相比不可忽略):如风荷载，雪荷载，车辆荷载，人员荷载
+        \item 偶然作用(在结构设计基准期内不一定出现，而一旦出现其量值很大且持续时间较短):如地震荷载，爆炸荷载
+    \end{enumerate}
+\end{definition}
+
+
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

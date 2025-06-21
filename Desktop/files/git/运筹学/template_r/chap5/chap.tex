@@ -1,0 +1,88 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+
+\chapter{网络优化理论}
+
+\begin{definition}
+    网络
+
+    G(图)=（V(节点)，E(弧)）
+\end{definition}
+
+\begin{definition}
+    次
+
+    $d(v)$:以顶点v为端点的边的个数
+\end{definition}
+
+\begin{definition}
+    树时一个连通无圈无向的图
+
+    树T = (V, E)，$|V|=n$,$|E|=m$，则下列说法等价：
+
+(1) T是一个树
+
+(2) T无圈，且m=n-1
+
+(3) T连通，且m=n-1
+
+(4) T无圈，但每加一个新边，可得唯一的圈
+
+(5) T连通，但每舍去一条边即不连通
+
+(6) T中任意两点，有唯一的链相连
+\end{definition}
+
+实际上可以管这个叫最小生成树，因为你找不出更小一个连通无圈无向的图了。对于一个图的最小生成树，我们可以采用破圈法。
+
+\begin{definition}
+    \textbf{生成子图}：给定图 \( G = (V, E) \)，其生成子图 \( G' = (V', E') \) 满足以下条件：
+    \begin{itemize}
+        \item \( V' \subseteq V \)：子图的顶点集合是原图顶点集合的子集；
+        \item \( E' \subseteq E \)：子图的边集合是原图边集合的子集；
+        \item \( E' \) 仅包含连接 \( V' \) 中顶点的边。
+    \end{itemize}
+\end{definition}
+
+\begin{remark}
+    几个概念的辨析
+
+    \begin{enumerate}
+        \item 链:无方向要求，可以反向链接
+        \item 道路:有方向要求，不能反向链接
+        \item 圈:顾名思义，但是可以反向链接
+        \item 回路:有方向要求的圈，不能反向链接
+    \end{enumerate}
+\end{remark}
+
+\begin{enumerate}
+    \item 对于所有权值都非负的图，最短路可用dijkstra算法求解
+    \item 对于含负权值的图，最短路可用逐次逼近法求解
+    \item 对于任意两点最短距离，可以使用Floyd算法求解
+\end{enumerate}
+
+何老师的问题:对于逐次逼近法，最多需要几次迭代。
+
+如果不能提早收敛的话，得要n-1次（n是节点个数）
+
+\textbf{求解最短路的两种思路:}
+
+思路1：两点间用逐次逼近法求解（这也解释了为什么迭代某次发现不变之后就是收敛了）
+
+\[ d_{ij}^{(k)} = \min_{l} \{ d_{il}^{(k-1)} + l_{lj} \} \quad l=1,2,\ldots,n \quad 1 \leq k \leq n \]
+
+思路2：\( l_{ij} \)用上一步迭代结果替代
+
+\[ d_{ij}^{(k)} = \min_{l} \{ d_{il}^{(k-1)} + d_{lj}^{(k-1)} \} \quad l=1,2,\ldots,n \quad 1 \leq k \leq n \]
+
+这就是Floyd算法的思路
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

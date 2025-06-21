@@ -1,0 +1,184 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+
+\else
+\fi
+
+\chapter{重力荷载}
+
+\section{结构自重}
+
+\begin{definition}
+    构件自重:
+\[ G_b = \gamma V \]
+结构总自重:
+\[ G = \sum_{i=1}^{n} \gamma_i V_i \]
+\end{definition}
+
+\section{土压力}
+
+\begin{definition}
+    成层土中竖向自重应力沿深度的分布:
+$$
+\sigma_{cz} = \gamma_1 h_1 + \gamma_2 h_2 + \cdots + \gamma_n h_n = \sum_{i=1}^{n} \gamma_i h_i
+$$
+如果考虑地下水位的话，存在突变。
+
+具体为，假如到深度$h_1$处为地下水位线，由刚才土自重应力计算公式得,$\sigma_1=\gamma_1 h_1$
+
+地下水位到$h_2$结束，那么$h_2$上端为$\gamma_1 h_1 + (\gamma_2 -\gamma_w )h_2$ （可以理解为去掉了水的浮力）
+
+但是$h_2$下端，突变为$\gamma_1 h_1 + \gamma_2 h_2$ (这里不考虑水的重力了)
+\end{definition}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{../figure/tuyali}
+    \caption{土压力示意图}
+    \label{fig:tuyali}
+\end{figure}
+
+\section{雪荷载}
+
+\begin{definition}
+    $s = \gamma d = \rho g d$
+\begin{enumerate}
+    \item $s$: 雪压 ($kN/m^2$)
+    \item $d$: 积雪深度，指从积雪表面到地面的垂直深度 (m)
+    \item $\gamma$: 雪重度 ($kN/m^3$)
+    \item $\rho$: \text{积雪密度 ($kg/m^3$)}
+    \item $g$: 重力加速度，取$9.8m/s^2$。
+\end{enumerate}
+\label{eq:snow_pressure}
+\end{definition}
+
+\begin{remark}
+    雪荷载喜欢考定义，主要影响因素是雪深和雪重度
+\end{remark}
+
+\textbf{雪密度随雪深的变化：}
+
+刚刚飘落的雪十分蓬松，密度较小，大约为：50～100 kg/m³
+
+积雪达到一定厚度时，下层积雪压密，雪密度增加。
+
+\textbf{雪密度随时间的变化：}
+
+积雪反复冻融作用及人为踩踏搅动，其密度也会增加。
+
+\textbf{海拔高度对基本雪压的影响：}
+
+一般基本雪压随海拔高度增加而增大。因为海拔较高的地区温度较低，降雪机会增多且积雪融化延缓。
+
+\begin{remark}
+    最大雪深与最大雪密度两者并不一定同时出现。
+
+最好是直接量测雪压，即直接记录地面雪压值。
+\end{remark}
+
+\begin{definition}
+    基本雪压：
+
+空旷平坦地面上，根据当地气象台观察并收集的年\textbf{最大雪压}，经统计得出的50年一遇的最大雪压（即重现期为50年）的概率分布（极值分布），取分布上取某个分位值（\( p_k \)=0.36）为雪压标准值；对雪敏感的结构（主要指大跨、轻质屋盖结构），应采用100年重现期的雪压分布
+\end{definition}
+
+基本雪压是针对地面上的积雪荷载定义的。屋面雪荷载由于多种因素影响，往往与地面雪荷载不同。
+
+影响屋面积雪的因素：
+
+风对屋面积雪的影响：漂积作用
+
+屋面形式（坡度）对积雪的影响：雪的滑移,{\color{red}显然坡度越大，屋面雪压力越小}
+
+屋面散热（温度）对积雪的影响：积雪融化、积雪滑移
+
+\begin{definition}
+    屋面水平投影面的雪荷载标准值按下式计算:
+\[ S_k = \mu_r S_0 \]
+\[ S_k \quad \text{—— 雪荷载标准值(kN/m²)} \]
+\[ \mu_r \quad \text{—— 屋面积雪分布系数} \]
+\[ S_0 \quad \text{—— 地面基本雪压(kN/m²)} \]
+\end{definition}
+
+\section{汽车荷载}
+
+\begin{definition}
+    汽车荷载分为车道荷载(包含均布荷载和集中荷载)和车辆荷载
+\end{definition}
+
+\begin{remark}
+    车辆荷载和车道荷载的作用不得叠加
+\end{remark}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../figure/qichehezai.png}
+    \caption{汽车荷载等级}
+    \label{fig:qichehezai}
+\end{figure}
+
+\begin{enumerate}
+    \item 车辆荷载：考虑车的尺寸及车的排列方式，以集中荷载的形式作用于车轴（即车轮）位置。
+    \item 车道荷载：不考虑车的尺寸及排列方式，将其等效为均布荷载和一个可作用于任意位置的集中荷载形式。
+    \item 公路Ⅰ级和公路Ⅱ级汽车荷载采用相同的车辆荷载标准值。
+    \item 车道荷载是个虚拟荷载，由均布荷载和集中荷载组成。
+    \item 对于连续梁，常用影响线辅助寻找产生最不利效应的最不利荷载分布。
+    \item 多车道桥梁上的汽车荷载应考虑多车道折减（横向折减）
+    \item 大跨径桥梁随着桥梁跨度的增加桥梁上实际通行的车辆达到较高
+    密度和满载的概率减小，应考虑纵向计算跨径折减。当为多跨连续结构时，整个结构应按最大的计算
+    跨径考虑汽车荷载效应的折减。
+\end{enumerate}
+
+\section{楼面活荷载}
+
+\begin{definition}
+    活荷载的定义：
+
+指建筑物中的人群、家具、设施等产生的重力作用，这些荷载的量值随时间发生变化，位置也是可移动的，亦称{\color{red}可变荷载}。
+
+楼面活荷载按其随时间变异的特点，可分为持久性和临时性两部分：
+
+\begin{enumerate}
+    \item 持久性活荷载：（Sustained live load）是指楼面上在某个时段内基本保持不变的荷载，例如住宅内的家具、常住人员等；
+    \item 临时性活荷载：（Transient live load）是指楼面上偶尔出现的短期荷载，例如聚会的人群、装修材料的堆积等。
+\end{enumerate}
+
+楼面活荷载一般处理为均布荷载，不同场景的均布荷载计算不同
+\end{definition}
+
+\begin{example}
+下面结构受到的作用，属于结构自重的是：(B)  
+
+A. 家具的重力；  
+
+B. 楼面板受到的重力；  
+
+C. 人员的重力；  
+
+D. 屋顶积雪的重力。
+\end{example}
+
+\begin{remark}
+    由我们刚才的讨论可以知道，家具和人员都属于楼面活荷载，设备也是。
+\end{remark}
+
+\begin{example}
+    计算楼面活荷载时，为什么当活荷载作用面积超过一定数值时，需对楼面活荷载进行折减？
+
+    由于楼面均布活荷载可理解为总活荷载按楼面面积平均，面积越大，平摊的楼面活荷载越小。
+\end{example}
+
+\section{人群荷载}
+
+\begin{definition}
+    人群荷载分为公路桥梁人群荷载、城市桥梁人群荷载、铁路桥梁人行道荷载
+
+    (暂时不知道啥是重点)
+\end{definition}
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

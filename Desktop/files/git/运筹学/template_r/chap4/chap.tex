@@ -1,0 +1,90 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+
+\chapter{动态规划}
+
+\begin{definition}
+    阶段：
+
+按时间、空间的特征分解成若干顺序联系的阶段。
+
+\end{definition}
+
+\begin{definition}
+    状态：
+
+k阶段开始（或结束）时的客观条件，记为$s_k \in S_k$。$S_k$为k阶段状态集合。
+
+\end{definition}
+\begin{definition}
+    决策（同时依赖于阶段和状态）:
+
+依据状态做出的决定，记为$u_k(s_k) \in D_k(s_k)$，$D_k(s_k)$为状态$s_k$的允许决策集合。
+\end{definition}
+\begin{definition}
+    状态的转移方程:
+\[ s_{k+1} = T_k(s_k, u_k(s_k)) \]
+\end{definition}
+
+\begin{definition}
+    策略
+
+各阶段决策依次构成的决策序列。记为
+\[ p_{1,n} = \{u_1(s_1), u_2(s_2), \ldots, u_n(s_n)\} \in P \]
+P为允许策略集合。
+\end{definition}
+
+\begin{remark}
+    动态规划要求问题具有无后效性：
+
+给定某阶段的状态\( s_k \)，则以后各阶段的状态\( s_l \)（\( l > k \)）都只受\( s_k \)的影响，与之前的状态无关。
+\end{remark}
+
+\begin{definition}
+    子过程与子策略
+
+后部子过程策略，从k阶段开始到终了阶段的决策子序列，记为
+$$
+p_{k,n}(s_k) = \{u_k(s_k), u_{k+1}(s_{k+1}), \ldots, u_n(s_n)\} \in P_{k,n}(s_k)
+$$
+\end{definition}
+
+\begin{definition}
+    子策略的指标函数
+
+评价沿子策略$p_{k,n}$过程性能优劣的函数，记为$V_{k,n}(s_k, p_{k,n})$。
+\end{definition}
+
+为了实现动态规划的递推结构，要求指标函数具有可分离性
+
+$$
+V_{k,n}(s_k, p_{k,n}) = \phi_k(s_k, u_k, V_{k+1,n}(s_{k+1}, p_{k+1,n}))
+$$
+
+$\phi_k$ 是 $V_{k+1,n}(s_{k+1}, p_{k+1,n})$ 的严格单调函数。
+
+\begin{remark}
+    最优化原理:
+
+最优策略的子策略是相应子问题的最优策略（否则由策略的无后效性，这一定不是最优）。
+\end{remark}
+
+\begin{theorem}
+    最优化定理
+
+策略 $p_{1,n}^*$ 是最优策略的充要条件是，对于所有的 $k$，都有：
+$$ V_{1,n}(s_1, p_{1,n}^*) = \underset{p_{1,k-1} \in P_{1,k-1}}{\text{opt}} \left( V_{1,k-1}(s_1, p_{1,k-1}) + \underset{p_{k,n} \in P_{k,n}}{\text{opt}} V_{k,n}(s_k, p_{k,n}) \right) $$
+\end{theorem}
+
+
+
+
+\ifx\allfiles\undefined
+\end{document}
+\fi
